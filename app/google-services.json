@@ -1,0 +1,151 @@
+{
+  "project_info": {
+    "project_number": "937053316971",
+    "firebase_url": "https://halal-food-finder-151.firebaseio.com",
+    "project_id": "halal-food-finder-151",
+    "storage_bucket": "halal-food-finder-151.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:937053316971:android:7bfa3417a3ef99fa",
+        "android_client_info": {
+          "package_name": "com.aburubban.halalfoodfinder"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "937053316971-4bqrj5qttkimuior50upog7687fu9nqt.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.aburubban.halalfoodfinder",
+            "certificate_hash": "ebca57ad5da7779735321e27f8ab474fb8473363"
+          }
+        },
+        {
+          "client_id": "937053316971-9ne7vcm4h92sm3a5nekqacue184h0o72.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.aburubban.halalfoodfinder",
+            "certificate_hash": "17d22dd9750fe07162f9c632526685bb31072e4d"
+          }
+        },
+        {
+          "client_id": "937053316971-kb86fh9ksq2aj5gcadanpkpo86fcdr8j.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCBMZ_M2VkgKllxssSd6cMmS4q37PWTvY8"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "937053316971-kb86fh9ksq2aj5gcadanpkpo86fcdr8j.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:937053316971:android:a6088b3aa99d52ca",
+        "android_client_info": {
+          "package_name": "com.aburubban.halalfoodfinder1"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "937053316971-v9d3amvoaf1dnvst6d5le457d9co7s1s.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.aburubban.halalfoodfinder1",
+            "certificate_hash": "17d22dd9750fe07162f9c632526685bb31072e4d"
+          }
+        },
+        {
+          "client_id": "937053316971-kb86fh9ksq2aj5gcadanpkpo86fcdr8j.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCBMZ_M2VkgKllxssSd6cMmS4q37PWTvY8"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "937053316971-kb86fh9ksq2aj5gcadanpkpo86fcdr8j.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:937053316971:android:448193bf1fae7907",
+        "android_client_info": {
+          "package_name": "com.aburubban.myapplication"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "937053316971-mk65j3ep97c9giln6v1b1s65qbla8t4a.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.aburubban.myapplication",
+            "certificate_hash": "ebca57ad5da7779735321e27f8ab474fb8473363"
+          }
+        },
+        {
+          "client_id": "937053316971-kb86fh9ksq2aj5gcadanpkpo86fcdr8j.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCBMZ_M2VkgKllxssSd6cMmS4q37PWTvY8"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "937053316971-kb86fh9ksq2aj5gcadanpkpo86fcdr8j.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
