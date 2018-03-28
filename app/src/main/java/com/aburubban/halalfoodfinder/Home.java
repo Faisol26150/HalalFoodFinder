@@ -162,6 +162,8 @@ public class Home extends AppCompatActivity
         } else if (id == R.id.nav_orders) {
 
         } else if (id == R.id.nav_find) {
+            Intent findmap = new Intent(Home.this,MapsActivity.class);
+            startActivity(findmap);
 
         } else if (id == R.id.nav_log_out) {
 
