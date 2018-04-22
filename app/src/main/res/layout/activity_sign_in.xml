@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/bg"
+    android:background="@drawable/back2"
     tools:context="com.aburubban.halalfoodfinder.SignIn">
 
 
@@ -23,15 +23,15 @@
             android:hint="Phone Number"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textColorHint="@android:color/white"
+            android:textColorHint="@android:color/black"
             android:text="0937320604"
-            android:textColor="@android:color/white"
+            android:textColor="@android:color/black"
             android:textSize="34dp"
             android:inputType="phone"
-            app:met_baseColor="@android:color/white"
+            app:met_baseColor="@android:color/black"
             app:met_floatingLabel="highlight"
             app:met_maxCharacters="11"
-            app:met_primaryColor="@android:color/white"
+            app:met_primaryColor="@android:color/black"
             app:met_singleLineEllipsis="true"
             />
 
@@ -41,35 +41,27 @@
             android:hint="Password"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textColorHint="@android:color/white"
+            android:textColorHint="@android:color/black"
             android:text="1234"
-            android:textColor="@android:color/white"
+            android:textColor="@android:color/black"
             android:textSize="34dp"
             android:inputType="textPassword"
-            app:met_baseColor="@android:color/white"
+            app:met_baseColor="@android:color/black"
             app:met_floatingLabel="highlight"
             app:met_maxCharacters="11"
-            app:met_primaryColor="@android:color/white"
+            app:met_primaryColor="@android:color/black"
             app:met_singleLineEllipsis="true"
             />
 
     </LinearLayout>
 
-    <info.hoang8f.widget.FButton
+    <Button
         android:id="@+id/btnSignIn"
-        android:text="Sign In"
-        android:textColor="@android:color/white"
-        android:layout_marginRight="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_alignParentBottom="true"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="8dp"
-        app:buttonColor="@color/btnSignActive"
-        app:shadowColor="@android:color/black"
-        app:shadowEnabled="true"
-        app:shadowHeight="5dp"
-        app:cornerRadius="4dp"
-        />
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="13dp"
+        android:background="@drawable/sign_in4" />
 
 </RelativeLayout>

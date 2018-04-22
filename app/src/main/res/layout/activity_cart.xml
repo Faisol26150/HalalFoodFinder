@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/bg"
+    android:background="@drawable/back2"
     android:padding="16dp"
     tools:context="com.aburubban.halalfoodfinder.Cart">
 
@@ -17,7 +17,7 @@
 
     <android.support.v7.widget.CardView
         android:layout_alignParentBottom="true"
-        app:cardBackgroundColor="@color/colorPrimary"
+        app:cardBackgroundColor="@color/btnSign"
         android:layout_width="match_parent"
         android:layout_height="100dp">
 
@@ -60,9 +60,6 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="8dp"
                 app:buttonColor="@color/btnSignActive"
-                app:shadowColor="@android:color/black"
-                app:shadowEnabled="true"
-                app:shadowHeight="5dp"
                 app:cornerRadius="4dp"
                 />
 

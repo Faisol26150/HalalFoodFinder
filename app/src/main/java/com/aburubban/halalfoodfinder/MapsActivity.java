@@ -139,6 +139,23 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             LocationServices.FusedLocationApi.removeLocationUpdates(client,this);
         }
     }
+    public void onClick(View v)
+    {
+        switch(v.getId())
+        {
+            case R.id.B_restaurants:
+                LatLng kew = new LatLng(7.897202, 98.351294);
+                mMap.addMarker(new MarkerOptions().position(kew).title("Kew-e-Mai"));
+
+                LatLng a = new LatLng(7.933083, 98.399806);
+                mMap.addMarker(new MarkerOptions().position(a).title("ร้านฮายซัน"));
+
+                LatLng b = new LatLng(7.932889, 98.399694);
+                mMap.addMarker(new MarkerOptions().position(b).title("ร้านน้องลีน่า"));
+
+                break;
+        }
+    }
 
 
     private String getUrl(double latitude , double longitude , String nearbyPlace)
