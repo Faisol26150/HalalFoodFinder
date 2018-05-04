@@ -44,6 +44,7 @@ dependencies {
     compile 'com.firebaseui:firebase-ui-database:1.2.0'
     compile 'com.google.android.gms:play-services-maps:11.0.4'
     compile 'com.google.android.gms:play-services-location:11.0.4'
+    compile 'gr.pantrif:easy-android-splash-screen:0.0.1'
     testCompile 'junit:junit:4.12'
 }
 
