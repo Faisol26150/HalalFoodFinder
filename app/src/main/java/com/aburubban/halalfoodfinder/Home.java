@@ -156,16 +156,26 @@ public class Home extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_menu) {
-            // Handle the camera action
+
         } else if (id == R.id.nav_cart) {
+            Intent cart = new Intent(Home.this,Cart.class);
+            startActivity(cart);
 
         } else if (id == R.id.nav_orders) {
+            Intent OrderIn = new Intent(Home.this,OrderStatus.class);
+            startActivity(OrderIn);
+
 
         } else if (id == R.id.nav_find) {
             Intent findmap = new Intent(Home.this,MapsActivity.class);
             startActivity(findmap);
 
         } else if (id == R.id.nav_log_out) {
+            //Logout
+            Intent out = new Intent(Home.this,SignIn.class);
+            out.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            startActivity(out);
+
 
         }
 

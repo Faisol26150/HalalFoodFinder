@@ -8,10 +8,12 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import io.paperdb.Paper;
+
 public class MainActivity extends AppCompatActivity {
 
     Button btnSignIn,btnSignUp;
-    TextView txtSlogan;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,6 +21,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         btnSignIn = (Button)findViewById(R.id.btnSignIn);
         btnSignUp = (Button)findViewById(R.id.btnSignUp);
+
+
 
         btnSignIn.setOnClickListener(new View.OnClickListener() {
             @Override
