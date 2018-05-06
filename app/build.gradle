@@ -5,7 +5,7 @@ android {
     buildToolsVersion "27.0.3"
     defaultConfig {
         applicationId "com.aburubban.halalfoodfinder"
-        minSdkVersion 14
+        minSdkVersion 17
         targetSdkVersion 27
         versionCode 1
         versionName "1.0"
@@ -27,8 +27,8 @@ dependencies {
 
 
 
+    compile 'com.github.mancj:MaterialSearchBar:0.7.1'
     compile 'com.android.support:design:26.+'
-
     compile 'com.android.support:design:26.+'
     compile 'com.amulyakhare:com.amulyakhare.textdrawable:1.0.1'
     compile 'com.readystatesoftware.sqliteasset:sqliteassethelper:+'
@@ -50,16 +50,5 @@ dependencies {
     compile 'com.github.rey5137:material:1.2.4'
     testCompile 'junit:junit:4.12'
 }
-
-
-
-
-
-
-
-
-
-
-
 
 apply plugin: 'com.google.gms.google-services'
