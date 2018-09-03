@@ -14,11 +14,7 @@
             android:id="@+id/nav_orders"
             android:icon="@drawable/ic_access_time_black_24dp"
             android:title="Oders" />
-        <item
-            android:id="@+id/nav_find"
-            android:icon="@drawable/ic_search_black_24dp"
-            android:title="Find Restaurant"
-            />
+       
         <item
             android:id="@+id/nav_log_out"
             android:icon="@drawable/ic_exit_to_app_black_24dp"

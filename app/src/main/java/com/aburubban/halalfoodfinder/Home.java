@@ -21,6 +21,7 @@ import android.widget.Toast;
 import com.aburubban.halalfoodfinder.Common.Common;
 import com.aburubban.halalfoodfinder.Interface.ItemClickListener;
 import com.aburubban.halalfoodfinder.Model.Category;
+import com.aburubban.halalfoodfinder.Service.ListenOrder;
 import com.aburubban.halalfoodfinder.ViewHolder.MenuViewHolder;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.google.firebase.database.DatabaseReference;
@@ -88,6 +89,10 @@ public class Home extends AppCompatActivity
         recyler_menu.setLayoutManager(layoutManager);
 
         loadMenu();
+
+        //Register Service
+        Intent service = new Intent(Home.this, ListenOrder.class);
+        startService(service);
 
     }
     private void loadMenu(){
@@ -165,10 +170,6 @@ public class Home extends AppCompatActivity
             Intent OrderIn = new Intent(Home.this,OrderStatus.class);
             startActivity(OrderIn);
 
-
-        } else if (id == R.id.nav_find) {
-            Intent findmap = new Intent(Home.this,MapsActivity.class);
-            startActivity(findmap);
 
         } else if (id == R.id.nav_log_out) {
             //Logout

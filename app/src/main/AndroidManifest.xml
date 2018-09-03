@@ -31,17 +31,14 @@
             android:theme="@style/AppTheme" />
         <activity android:name=".FoodList" />
         <activity android:name=".FoodDetail" />
-
-        <meta-data
-            android:name="com.google.android.geo.API_KEY"
-            android:value="@string/google_maps_key" />
-
-        <activity
-            android:name=".MapsActivity"
-            android:label="AIzaSyBhyN8Rnxg_zjJbCaKyMJSlXCe2_Fsv7rs" />
         <activity android:name=".Cart" />
         <activity android:name=".MainActivity" />
-        <activity android:name=".OrderStatus"></activity>
+        <activity android:name=".OrderStatus" />
+
+        <service
+            android:name=".Service.ListenOrder"
+            android:enabled="true"
+            android:exported="true"></service>
     </application>
 
 </manifest>

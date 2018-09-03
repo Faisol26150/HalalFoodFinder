@@ -1,6 +1,7 @@
 package com.aburubban.halalfoodfinder;
 
 import android.content.Intent;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -110,6 +111,7 @@ public class FoodList extends AppCompatActivity {
 
             }
         });
+
     }
 
     private void startSearch(CharSequence text) {
@@ -117,7 +119,7 @@ public class FoodList extends AppCompatActivity {
                Food.class,
                 R.layout.food_item,
                 FoodViewHolder.class,
-                FoodList.orderByChild("Name").equalTo(text.toString())
+                FoodList.orderByChild("name").equalTo(text.toString())
         ) {
             @Override
             protected void populateViewHolder(FoodViewHolder viewHolder, Food model, int position) {
@@ -140,7 +142,7 @@ public class FoodList extends AppCompatActivity {
     }
 
     private void loadSuggest() {
-        FoodList.orderByChild("MenuId").equalTo(categoryId)
+        FoodList.orderByChild("menuId").equalTo(categoryId)
                 .addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(DataSnapshot dataSnapshot) {
@@ -164,13 +166,14 @@ public class FoodList extends AppCompatActivity {
             adapter = new FirebaseRecyclerAdapter<Food, FoodViewHolder>(Food.class,
                     R.layout.food_item,
                     FoodViewHolder.class,
-                    FoodList.orderByChild("MenuId").equalTo(categoryId)//like : Select*from Food where MenuId
+                    FoodList.orderByChild("menuId").equalTo(categoryId)//like : Select*from Food where MenuId
                     ) {
                 @Override
                 protected void populateViewHolder(FoodViewHolder viewHolder, Food model, int position) {
                     viewHolder.food_name.setText(model.getName());
-                    Picasso.with(getBaseContext()).load(model.getImage())
-                            .into(viewHolder.food_image);
+                             Picasso.with(getBaseContext())
+                                     .load(model.getImage())
+                                     .into(viewHolder.food_image);
 
                     final Food local = model;
                     viewHolder.setItemClickListener(new ItemClickListener() {

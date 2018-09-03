@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/HalalFoodFinder.iml" filepath="$PROJECT_DIR$/HalalFoodFinder.iml" />
+      <module fileurl="file://$PROJECT_DIR$/HalalFoodPoint.iml" filepath="$PROJECT_DIR$/HalalFoodPoint.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>

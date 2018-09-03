@@ -1,5 +1,6 @@
 package com.aburubban.halalfoodfinder;
 
+import android.content.Intent;
 import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
@@ -62,6 +63,15 @@ public class FoodDetail extends AppCompatActivity {
 
                 Toast.makeText(FoodDetail.this, "Added to Cart", Toast.LENGTH_SHORT).show();
 
+            }
+        });
+
+        FloatingActionButton btnCart1 = (FloatingActionButton) findViewById(R.id.btnCart1);
+        btnCart1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent cart1Intent = new Intent(FoodDetail.this,Cart.class);
+                startActivity(cart1Intent);
             }
         });
 
