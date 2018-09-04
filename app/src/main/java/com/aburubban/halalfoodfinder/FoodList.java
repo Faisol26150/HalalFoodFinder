@@ -12,6 +12,7 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.aburubban.halalfoodfinder.Common.Common;
 import com.aburubban.halalfoodfinder.Interface.ItemClickListener;
 import com.aburubban.halalfoodfinder.Model.Food;
 import com.aburubban.halalfoodfinder.ViewHolder.FoodViewHolder;
@@ -64,7 +65,13 @@ public class FoodList extends AppCompatActivity {
             categoryId = getIntent().getStringExtra("CategoryId");
         if (!categoryId.isEmpty()&&categoryId != null)
         {
+            if (Common.isConnectedToInterner(getBaseContext()))
             loadListFood(categoryId);
+            else
+            {
+                Toast.makeText(FoodList.this, "Please check your connection !!", Toast.LENGTH_SHORT).show();
+                return;
+            }
         }
         //Search
         materialSearchBar = (MaterialSearchBar)findViewById(R.id.searchBar);

@@ -88,7 +88,13 @@ public class Home extends AppCompatActivity
         layoutManager = new LinearLayoutManager(this);
         recyler_menu.setLayoutManager(layoutManager);
 
+        if (Common.isConnectedToInterner(this))
         loadMenu();
+        else
+        {
+            Toast.makeText(this, "Please check your connection !!", Toast.LENGTH_SHORT).show();
+            return;
+        }
 
         //Register Service
         Intent service = new Intent(Home.this, ListenOrder.class);
@@ -141,15 +147,9 @@ public class Home extends AppCompatActivity
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
+        if (item.getItemId() == R.id.refresh)
+                loadMenu();
 
         return super.onOptionsItemSelected(item);
     }

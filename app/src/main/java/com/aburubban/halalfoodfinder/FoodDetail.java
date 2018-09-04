@@ -10,6 +10,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.aburubban.halalfoodfinder.Common.Common;
 import com.aburubban.halalfoodfinder.Database.Database;
 import com.aburubban.halalfoodfinder.Model.Food;
 import com.aburubban.halalfoodfinder.Model.Order;
@@ -89,7 +90,13 @@ public class FoodDetail extends AppCompatActivity {
             foodId = getIntent().getStringExtra("FoodId");
         if (!foodId.isEmpty())
         {
+            if (Common.isConnectedToInterner(getBaseContext()))
             getDetailFood(foodId);
+            else
+            {
+                Toast.makeText(FoodDetail.this, "Please check your connection !!", Toast.LENGTH_SHORT).show();
+                return;
+            }
         }
 
 
