@@ -41,10 +41,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:srcCompat="@drawable/font2"
-        android:layout_marginBottom="28dp"
+        android:layout_marginBottom="23dp"
         android:layout_above="@+id/btnSignUp"
-        android:layout_alignRight="@+id/imageView3"
-        android:layout_alignEnd="@+id/imageView3" />
+        android:layout_centerHorizontal="true" />
 
     <Button
         android:id="@+id/btnSignUp"

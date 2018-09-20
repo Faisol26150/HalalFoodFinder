@@ -1,5 +1,6 @@
 package com.aburubban.halalfoodfinder;
 
+import android.content.Context;
 import android.content.Intent;
 import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.design.widget.FloatingActionButton;
@@ -22,6 +23,9 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.squareup.picasso.Picasso;
 
+import uk.co.chrisjenx.calligraphy.CalligraphyConfig;
+import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
+
 public class FoodDetail extends AppCompatActivity {
 
     TextView food_name,food_price,food_description;
@@ -37,9 +41,20 @@ public class FoodDetail extends AppCompatActivity {
     Food currentFood;
 
 
+
+    @Override
+    protected void attachBaseContext(Context newBase) {
+        super.attachBaseContext(CalligraphyContextWrapper.wrap(newBase));
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        // add this code
+        CalligraphyConfig.initDefault(new CalligraphyConfig.Builder()
+                .setDefaultFontPath("fonts/Mitr.ttf")
+                .setFontAttrId(R.attr.fontPath)
+                .build());
         setContentView(R.layout.activity_food_detail);
 
 
@@ -62,7 +77,7 @@ public class FoodDetail extends AppCompatActivity {
                         currentFood.getDiscont()
                 ));
 
-                Toast.makeText(FoodDetail.this, "Added to Cart", Toast.LENGTH_SHORT).show();
+                Toast.makeText(FoodDetail.this, "ใส่ไปยังรถเข็นแล้ว", Toast.LENGTH_SHORT).show();
 
             }
         });
@@ -94,7 +109,7 @@ public class FoodDetail extends AppCompatActivity {
             getDetailFood(foodId);
             else
             {
-                Toast.makeText(FoodDetail.this, "Please check your connection !!", Toast.LENGTH_SHORT).show();
+                Toast.makeText(FoodDetail.this, "ตรวจสอบการเชื่อมต่ออินเทอร์เน็ต !!", Toast.LENGTH_SHORT).show();
                 return;
             }
         }

@@ -51,7 +51,7 @@
 
             <info.hoang8f.widget.FButton
                 android:id="@+id/btnPlaceOrder"
-                android:text="Place Order"
+                android:text="ยืนยันการสั่งซื้อ"
                 android:textColor="@android:color/white"
                 android:layout_marginRight="8dp"
                 android:layout_marginLeft="8dp"

@@ -20,7 +20,7 @@
         <com.rengwuxian.materialedittext.MaterialEditText
 
             android:id="@+id/edtPhone"
-            android:hint="Phone Number"
+            android:hint="เบอร์โทรศัพท์"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textColorHint="@android:color/black"
@@ -38,7 +38,7 @@
         <com.rengwuxian.materialedittext.MaterialEditText
 
             android:id="@+id/edtName"
-            android:hint="Name"
+            android:hint="ชื่อ"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textColorHint="@android:color/black"
@@ -56,7 +56,7 @@
         <com.rengwuxian.materialedittext.MaterialEditText
 
             android:id="@+id/edtPassword"
-            android:hint="Password"
+            android:hint="รหัสผ่าน"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textColorHint="@android:color/black"

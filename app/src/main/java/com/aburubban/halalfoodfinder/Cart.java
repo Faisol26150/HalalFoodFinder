@@ -1,5 +1,6 @@
 package com.aburubban.halalfoodfinder;
 
+import android.content.Context;
 import android.content.DialogInterface;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -27,6 +28,8 @@ import java.util.List;
 import java.util.Locale;
 
 import info.hoang8f.widget.FButton;
+import uk.co.chrisjenx.calligraphy.CalligraphyConfig;
+import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
 public class Cart extends AppCompatActivity {
 
@@ -44,8 +47,20 @@ public class Cart extends AppCompatActivity {
     CartAdapter adapter;
 
     @Override
+    protected void attachBaseContext(Context newBase) {
+        super.attachBaseContext(CalligraphyContextWrapper.wrap(newBase));
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        // add this code
+        CalligraphyConfig.initDefault(new CalligraphyConfig.Builder()
+        .setDefaultFontPath("fonts/Mitr.ttf")
+        .setFontAttrId(R.attr.fontPath)
+        .build());
+
         setContentView(R.layout.activity_cart);
 
         //Firebase
@@ -68,7 +83,7 @@ public class Cart extends AppCompatActivity {
                 if (cart.size() > 0)
                 showAlertDialog();
                 else
-                    Toast.makeText(Cart.this, "Your cart is empty", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(Cart.this, "รถเข็นว่าง", Toast.LENGTH_SHORT).show();
 
             }
         });
@@ -80,8 +95,8 @@ public class Cart extends AppCompatActivity {
 
     private void showAlertDialog() {
         AlertDialog.Builder alertDialog = new AlertDialog.Builder(Cart.this);
-        alertDialog.setTitle("One more step!");
-        alertDialog.setMessage("Enter you address: ");
+        alertDialog.setTitle("รถเข็นของฉัน");
+        alertDialog.setMessage("กรุณากรอกที่อยู่จัดส่ง: ");
 
         final EditText edtAddress = new EditText(Cart.this);
         LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(
@@ -92,7 +107,7 @@ public class Cart extends AppCompatActivity {
         alertDialog.setView(edtAddress);
         alertDialog.setIcon(R.drawable.ic_shopping_cart_black_24dp);
 
-        alertDialog.setPositiveButton("YES", new DialogInterface.OnClickListener() {
+        alertDialog.setPositiveButton("ยืนยัน", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
                 //Create new Request
@@ -110,13 +125,13 @@ public class Cart extends AppCompatActivity {
 
                 //Delete cart
                 new Database(getBaseContext()).cleanCart();
-                Toast.makeText(Cart.this, "Thank you , Order Place", Toast.LENGTH_SHORT).show();
+                Toast.makeText(Cart.this, "ขอบคุณสำหรับการสั่งซื้ออาหารกับเรา", Toast.LENGTH_SHORT).show();
                 finish();
 
             }
         });
 
-        alertDialog.setNegativeButton("No", new DialogInterface.OnClickListener() {
+        alertDialog.setNegativeButton("ยกเลิก", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
                 dialogInterface.dismiss();

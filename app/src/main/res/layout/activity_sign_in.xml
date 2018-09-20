@@ -20,7 +20,7 @@
         <com.rengwuxian.materialedittext.MaterialEditText
 
             android:id="@+id/edtPhone"
-            android:hint="Phone Number"
+            android:hint="เบอร์โทรศัพท์"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textColorHint="@android:color/black"
@@ -38,7 +38,7 @@
         <com.rengwuxian.materialedittext.MaterialEditText
 
             android:id="@+id/edtPassword"
-            android:hint="Password"
+            android:hint="รหัสผ่าน"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textColorHint="@android:color/black"
@@ -58,7 +58,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             style="@style/Material.Drawable.CheckBox"
-            android:text="Remember me"
+            android:text="จดจำฉันไว้"
             android:gravity="center_vertical"
             android:textColor="@android:color/black"
             app:cbd_strokeColor="@android:color/black"

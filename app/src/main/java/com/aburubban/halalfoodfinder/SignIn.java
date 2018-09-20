@@ -1,6 +1,7 @@
 package com.aburubban.halalfoodfinder;
 
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -20,6 +21,8 @@ import com.rengwuxian.materialedittext.MaterialEditText;
 import com.rey.material.widget.CheckBox;
 
 import io.paperdb.Paper;
+import uk.co.chrisjenx.calligraphy.CalligraphyConfig;
+import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
 public class SignIn extends AppCompatActivity {
     EditText edtPhone,edtPassword;
@@ -27,9 +30,20 @@ public class SignIn extends AppCompatActivity {
     CheckBox ckbRemember;
 
 
+
+    @Override
+    protected void attachBaseContext(Context newBase) {
+        super.attachBaseContext(CalligraphyContextWrapper.wrap(newBase));
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        // add this code
+        CalligraphyConfig.initDefault(new CalligraphyConfig.Builder()
+                .setDefaultFontPath("fonts/Mitr.ttf")
+                .setFontAttrId(R.attr.fontPath)
+                .build());
         setContentView(R.layout.activity_sign_in);
 
         edtPassword = (MaterialEditText)findViewById(R.id.edtPassword);
@@ -59,7 +73,7 @@ public class SignIn extends AppCompatActivity {
 
 
                     final ProgressDialog mDialog = new ProgressDialog(SignIn.this);
-                    mDialog.setMessage("Please waiting...");
+                    mDialog.setMessage("กรุณารอสักครู่...");
                     mDialog.show();
 
 
@@ -87,12 +101,12 @@ public class SignIn extends AppCompatActivity {
                                     }
 
                                 } else {
-                                    Toast.makeText(SignIn.this, "Wrong Password", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(SignIn.this, "รหัสผ่านไม่ถูกต้อง", Toast.LENGTH_SHORT).show();
                                 }
 
                             } else {
                                 mDialog.dismiss();
-                                Toast.makeText(SignIn.this, "User not exist in Database", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(SignIn.this, "ม่มีผู้ใช้นี้ในระบบ", Toast.LENGTH_SHORT).show();
                             }
                         }
 
@@ -104,7 +118,7 @@ public class SignIn extends AppCompatActivity {
                 }
                 else
                 {
-                    Toast.makeText(SignIn.this, "Please check your connection !!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(SignIn.this, "ตรวจสอบการเชื่อมต่ออินเทอร์เน็ต !!", Toast.LENGTH_SHORT).show();
                     return;
                 }
             }

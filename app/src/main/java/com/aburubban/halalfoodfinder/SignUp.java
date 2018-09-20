@@ -1,6 +1,7 @@
 package com.aburubban.halalfoodfinder;
 
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -16,14 +17,28 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.rengwuxian.materialedittext.MaterialEditText;
 
+import uk.co.chrisjenx.calligraphy.CalligraphyConfig;
+import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
+
 public class SignUp extends AppCompatActivity {
 
     MaterialEditText edtPhone,edtName,edtPassword;
     Button btnSignUp;
 
+
+    @Override
+    protected void attachBaseContext(Context newBase) {
+        super.attachBaseContext(CalligraphyContextWrapper.wrap(newBase));
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        // add this code
+        CalligraphyConfig.initDefault(new CalligraphyConfig.Builder()
+                .setDefaultFontPath("fonts/Mitr.ttf")
+                .setFontAttrId(R.attr.fontPath)
+                .build());
         setContentView(R.layout.activity_sign_up);
 
         edtName = (MaterialEditText)findViewById(R.id.edtName);
@@ -40,7 +55,7 @@ public class SignUp extends AppCompatActivity {
             public void onClick(View v) {
                if (Common.isConnectedToInterner(getBaseContext())) {
                    final ProgressDialog mDialog = new ProgressDialog(SignUp.this);
-                   mDialog.setMessage("Please waiting...");
+                   mDialog.setMessage("กรุณารอสักครู่...");
                    mDialog.show();
 
                    table_user.addValueEventListener(new ValueEventListener() {
@@ -49,12 +64,12 @@ public class SignUp extends AppCompatActivity {
                            //check if already user phone
                            if (dataSnapshot.child(edtPhone.getText().toString()).exists()) {
                                mDialog.dismiss();
-                               Toast.makeText(SignUp.this, "Phone Number already register", Toast.LENGTH_SHORT).show();
+                               Toast.makeText(SignUp.this, "เบอร์โทรศัพท์พร้อมลงทะเบียน", Toast.LENGTH_SHORT).show();
                            } else {
                                mDialog.dismiss();
                                User user = new User(edtName.getText().toString(), edtPassword.getText().toString());
                                table_user.child(edtPhone.getText().toString()).setValue(user);
-                               Toast.makeText(SignUp.this, "Sign up successfully", Toast.LENGTH_SHORT).show();
+                               Toast.makeText(SignUp.this, "ลงทะเบียนเรียบร้อย", Toast.LENGTH_SHORT).show();
                                finish();
 
                            }
@@ -68,7 +83,7 @@ public class SignUp extends AppCompatActivity {
                }
                else
                    {
-                   Toast.makeText(SignUp.this, "Please check your connection !!", Toast.LENGTH_SHORT).show();
+                   Toast.makeText(SignUp.this, "ตรวจสอบการเชื่อมต่ออินเทอร์เน็ต !!", Toast.LENGTH_SHORT).show();
                    return;
                }
 

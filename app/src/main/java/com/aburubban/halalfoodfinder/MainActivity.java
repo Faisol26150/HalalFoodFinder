@@ -1,6 +1,7 @@
 package com.aburubban.halalfoodfinder;
 
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.support.v7.app.AppCompatActivity;
@@ -19,6 +20,8 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import io.paperdb.Paper;
+import uk.co.chrisjenx.calligraphy.CalligraphyConfig;
+import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
 import static com.aburubban.halalfoodfinder.R.id.edtPassword;
 import static com.aburubban.halalfoodfinder.R.id.edtPhone;
@@ -28,9 +31,20 @@ public class MainActivity extends AppCompatActivity {
     Button btnSignIn,btnSignUp;
 
 
+
+    @Override
+    protected void attachBaseContext(Context newBase) {
+        super.attachBaseContext(CalligraphyContextWrapper.wrap(newBase));
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        // add this code
+        CalligraphyConfig.initDefault(new CalligraphyConfig.Builder()
+                .setDefaultFontPath("fonts/Mitr.ttf")
+                .setFontAttrId(R.attr.fontPath)
+                .build());
         setContentView(R.layout.activity_main);
         btnSignIn = (Button)findViewById(R.id.btnSignIn);
         btnSignUp = (Button)findViewById(R.id.btnSignUp);
@@ -80,7 +94,7 @@ public class MainActivity extends AppCompatActivity {
         if (Common.isConnectedToInterner(getBaseContext())) {
 
             final ProgressDialog mDialog = new ProgressDialog(MainActivity.this);
-            mDialog.setMessage("Please waiting...");
+            mDialog.setMessage("กรุณารอสักครู่...");
             mDialog.show();
 
 
@@ -108,12 +122,12 @@ public class MainActivity extends AppCompatActivity {
                             }
 
                         } else {
-                            Toast.makeText(MainActivity.this, "Wrong Password", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(MainActivity.this, "รหัสผ่านไม่ถูกต้อง", Toast.LENGTH_SHORT).show();
                         }
 
                     } else {
                         mDialog.dismiss();
-                        Toast.makeText(MainActivity.this, "User not exist in Database", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(MainActivity.this, "ไม่มีผู้ใช้นี้ในระบบ", Toast.LENGTH_SHORT).show();
                     }
                 }
 
@@ -125,7 +139,7 @@ public class MainActivity extends AppCompatActivity {
         }
         else
         {
-            Toast.makeText(MainActivity.this, "Please check your connection !!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(MainActivity.this, "ตรวจสอบการเชื่อมต่ออินเทอร์เน็ต !!", Toast.LENGTH_SHORT).show();
             return;
         }
     }
