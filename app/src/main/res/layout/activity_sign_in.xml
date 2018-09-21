@@ -26,7 +26,7 @@
             android:textColorHint="@android:color/black"
             android:text="0937320604"
             android:textColor="@android:color/black"
-            android:textSize="34dp"
+            android:textSize="30dp"
             android:inputType="phone"
             app:met_baseColor="@android:color/black"
             app:met_floatingLabel="highlight"
@@ -42,9 +42,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textColorHint="@android:color/black"
-            android:text="1234"
+            android:text="123456"
             android:textColor="@android:color/black"
-            android:textSize="34dp"
+            android:textSize="30dp"
             android:inputType="textPassword"
             app:met_baseColor="@android:color/black"
             app:met_floatingLabel="highlight"
@@ -53,17 +53,33 @@
             app:met_singleLineEllipsis="true"
             />
 
-        <com.rey.material.widget.CheckBox
-            android:id="@+id/ckbRemember"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            style="@style/Material.Drawable.CheckBox"
-            android:text="จดจำฉันไว้"
-            android:gravity="center_vertical"
-            android:textColor="@android:color/black"
-            app:cbd_strokeColor="@android:color/black"
+     <LinearLayout
+         android:orientation="horizontal"
+         android:weightSum="2"
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content">
 
-            />
+         <com.rey.material.widget.CheckBox
+             android:id="@+id/ckbRemember"
+             android:layout_width="0dp"
+             android:layout_weight="1"
+             android:layout_height="wrap_content"
+             style="@style/Material.Drawable.CheckBox"
+             android:text="จดจำฉันไว้"
+             android:gravity="center_vertical"
+             android:textColor="@android:color/black"
+             app:cbd_strokeColor="@android:color/black"
+             />
+
+         <TextView
+             android:id="@+id/txtForgotPwd"
+             android:textColor="@android:color/black"
+             android:text="@string/forgot_pwd"
+             android:layout_weight="1"
+             android:layout_width="0dp"
+             android:layout_height="wrap_content" />
+     </LinearLayout>
+
     </LinearLayout>
 
     <Button

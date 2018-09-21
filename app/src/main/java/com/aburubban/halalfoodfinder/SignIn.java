@@ -2,12 +2,16 @@ package com.aburubban.halalfoodfinder;
 
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.aburubban.halalfoodfinder.Common.Common;
@@ -28,7 +32,11 @@ public class SignIn extends AppCompatActivity {
     EditText edtPhone,edtPassword;
     Button btnSignIn;
     CheckBox ckbRemember;
+    TextView txtForgotPwd;
 
+
+    FirebaseDatabase database;
+    DatabaseReference table_user;
 
 
     @Override
@@ -50,13 +58,22 @@ public class SignIn extends AppCompatActivity {
         edtPhone = (MaterialEditText)findViewById(R.id.edtPhone);
         btnSignIn = (Button)findViewById(R.id.btnSignIn);
         ckbRemember = (CheckBox)findViewById(R.id.ckbRemember);
+        txtForgotPwd = (TextView)findViewById(R.id.txtForgotPwd);
 
         //Init Paper
         Paper.init(this);
 
         //init Firebase
-        final FirebaseDatabase database = FirebaseDatabase.getInstance();
-        final DatabaseReference table_user = database.getReference("User");
+        database = FirebaseDatabase.getInstance();
+        table_user = database.getReference("User");
+
+        txtForgotPwd.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                showForgotPwdDialog();
+            }
+        });
+
 
         btnSignIn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -124,4 +141,53 @@ public class SignIn extends AppCompatActivity {
             }
         });
     }
+
+    private void showForgotPwdDialog() {
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("ลืมรหัสผ่าน");
+        builder.setMessage("กรุณากรอก Hint สำหรับรหัสผ่าน");
+
+        LayoutInflater inflater = this.getLayoutInflater();
+        View forgot_view = inflater.inflate(R.layout.forgot_password_layout,null);
+
+        builder.setView(forgot_view);
+        builder.setIcon(R.drawable.ic_security_black_24dp);
+
+        final MaterialEditText edtPhone = (MaterialEditText)forgot_view.findViewById(R.id.edtPhone);
+        final MaterialEditText edtSecureCode = (MaterialEditText)forgot_view.findViewById(R.id.edtSecureCode);
+
+        builder.setPositiveButton("ยืนยัน", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                table_user.addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(DataSnapshot dataSnapshot) {
+                      User user = dataSnapshot.child(edtPhone.getText().toString())
+                              .getValue(User.class);
+                        
+                        if (user.getSecureCode().equals(edtSecureCode.getText().toString()))
+                            Toast.makeText(SignIn.this, "รหัสผ่านของคุณคือ "+user.getPassword(), Toast.LENGTH_LONG).show();
+                        else
+                            Toast.makeText(SignIn.this, "Hint สำหรับรหัสผ่านของคุณไม่ถูกต้อง", Toast.LENGTH_SHORT).show();
+                    }
+
+                    @Override
+                    public void onCancelled(DatabaseError databaseError) {
+
+                    }
+                });
+            }
+        });
+        builder.setNegativeButton("ยกเลิก", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+
+            }
+        });
+
+        builder.show();
+
+    }
+
 }

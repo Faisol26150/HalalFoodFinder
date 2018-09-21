@@ -5,20 +5,20 @@
         <item
             android:id="@+id/nav_menu"
             android:icon="@drawable/ic_restaurant_black_24dp"
-            android:title="Menu" />
+            android:title="เมนู" />
         <item
             android:id="@+id/nav_cart"
             android:icon="@drawable/ic_shopping_cart_black_24dp"
-            android:title="Cart" />
+            android:title="รถเข็น" />
         <item
             android:id="@+id/nav_orders"
             android:icon="@drawable/ic_access_time_black_24dp"
-            android:title="Oders" />
+            android:title="รายการสั่งซื้อ" />
        
         <item
             android:id="@+id/nav_log_out"
             android:icon="@drawable/ic_exit_to_app_black_24dp"
-            android:title="Sign out"
+            android:title="ออกจากระบบ"
             />
 
     </group>

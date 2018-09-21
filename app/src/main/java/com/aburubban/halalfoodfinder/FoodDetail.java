@@ -52,7 +52,7 @@ public class FoodDetail extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         // add this code
         CalligraphyConfig.initDefault(new CalligraphyConfig.Builder()
-                .setDefaultFontPath("fonts/Mitr.ttf")
+                .setDefaultFontPath("fonts/Mitr-Light.ttf")
                 .setFontAttrId(R.attr.fontPath)
                 .build());
         setContentView(R.layout.activity_food_detail);

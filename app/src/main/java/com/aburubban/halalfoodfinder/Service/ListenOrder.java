@@ -67,8 +67,8 @@ public class ListenOrder extends Service implements ChildEventListener {
                 .setDefaults(Notification.DEFAULT_ALL)
                 .setWhen(System.currentTimeMillis())
                 .setTicker("Kaw-E-Mai")
-                .setContentInfo("Your order was updated")
-                .setContentText("Order #"+key+" was update status to "+ Common.convertCodeToStatus(request.getStatus()))
+                .setContentInfo("อัพเดทสถานะรายการสั่งซื้อ")
+                .setContentText("รายการสั้งซื้อ #"+key+" อัพเดทสถานะ "+ Common.convertCodeToStatus(request.getStatus()))
                 .setContentIntent(contentIntent)
                 .setContentInfo("Info")
                 .setSmallIcon(R.mipmap.ic_launcher);

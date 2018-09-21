@@ -22,7 +22,7 @@ import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
 public class SignUp extends AppCompatActivity {
 
-    MaterialEditText edtPhone,edtName,edtPassword;
+    MaterialEditText edtPhone,edtName,edtPassword,edtSecureCode;
     Button btnSignUp;
 
 
@@ -44,6 +44,7 @@ public class SignUp extends AppCompatActivity {
         edtName = (MaterialEditText)findViewById(R.id.edtName);
         edtPassword = (MaterialEditText)findViewById(R.id.edtPassword);
         edtPhone = (MaterialEditText)findViewById(R.id.edtPhone);
+        edtSecureCode = (MaterialEditText)findViewById(R.id.edtSecureCode);
 
         btnSignUp = (Button)findViewById(R.id.btnSignUp);
 
@@ -67,7 +68,9 @@ public class SignUp extends AppCompatActivity {
                                Toast.makeText(SignUp.this, "เบอร์โทรศัพท์พร้อมลงทะเบียน", Toast.LENGTH_SHORT).show();
                            } else {
                                mDialog.dismiss();
-                               User user = new User(edtName.getText().toString(), edtPassword.getText().toString());
+                               User user = new User(edtName.getText().toString(),
+                                       edtPassword.getText().toString(),
+                                       edtSecureCode.getText().toString());
                                table_user.child(edtPhone.getText().toString()).setValue(user);
                                Toast.makeText(SignUp.this, "ลงทะเบียนเรียบร้อย", Toast.LENGTH_SHORT).show();
                                finish();

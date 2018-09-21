@@ -15,11 +15,11 @@ public class Common {
 
     public static String convertCodeToStatus(String status) {
         if(status.equals("0"))
-            return "Placed";
+            return "รับออเดอร์";
         else if(status.equals("1"))
-            return "On my way";
+            return "อยู่ระหว่างการส่ง";
         else
-            return "Shipped";
+            return "จ่ายเงินเรียบร้อย";
 
     }
 
