@@ -5,6 +5,8 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 
 import com.aburubban.halalfoodfinder.Model.User;
+import com.aburubban.halalfoodfinder.Remote.APIService;
+import com.aburubban.halalfoodfinder.Remote.RetrofitClient;
 
 /**
  * Created by Abu Rubban on 23/2/2561.
@@ -12,6 +14,13 @@ import com.aburubban.halalfoodfinder.Model.User;
 
 public class Common {
     public static User currentUser;
+
+    private static final String BASE_URL = "https://fcm.googleapis.com/";
+
+    public static APIService getFCMService()
+    {
+        return RetrofitClient.getClient(BASE_URL).create(APIService.class);
+    }
 
     public static String convertCodeToStatus(String status) {
         if(status.equals("0"))

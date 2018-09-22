@@ -4,7 +4,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
@@ -22,11 +21,12 @@ import android.widget.Toast;
 import com.aburubban.halalfoodfinder.Common.Common;
 import com.aburubban.halalfoodfinder.Interface.ItemClickListener;
 import com.aburubban.halalfoodfinder.Model.Category;
-import com.aburubban.halalfoodfinder.Service.ListenOrder;
+import com.aburubban.halalfoodfinder.Model.Token;
 import com.aburubban.halalfoodfinder.ViewHolder.MenuViewHolder;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.iid.FirebaseInstanceId;
 import com.squareup.picasso.Picasso;
 
 import io.paperdb.Paper;
@@ -112,11 +112,16 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
             return;
         }
 
-        //Register Service
-        Intent service = new Intent(Home.this, ListenOrder.class);
-        startService(service);
-
+            updaateToken(FirebaseInstanceId.getInstance().getToken());
     }
+
+    private void updaateToken(String token) {
+        FirebaseDatabase db = FirebaseDatabase.getInstance();
+        DatabaseReference tokens = db.getReference("Tokens");
+        Token data = new Token(token,false); // false because this token send from Clien
+        tokens.child(Common.currentUser.getPhone()).setValue(data);
+    }
+
     private void loadMenu(){
         adapter = new FirebaseRecyclerAdapter<Category, MenuViewHolder>(Category.class,R.layout.menu_item,MenuViewHolder.class,category) {
             @Override
