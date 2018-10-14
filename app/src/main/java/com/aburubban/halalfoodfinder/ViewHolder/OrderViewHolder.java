@@ -2,6 +2,7 @@ package com.aburubban.halalfoodfinder.ViewHolder;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.aburubban.halalfoodfinder.Interface.ItemClickListener;
@@ -16,6 +17,8 @@ public class OrderViewHolder extends RecyclerView.ViewHolder implements View.OnC
     public TextView txtOrderId,txtOrderStatus,txtOrderPhone,txtOrderAddress;
     private ItemClickListener itemClickListener;
 
+    public Button btnColor;
+
     public OrderViewHolder(View itemView) {
         super(itemView);
 
@@ -23,6 +26,8 @@ public class OrderViewHolder extends RecyclerView.ViewHolder implements View.OnC
         txtOrderId = (TextView)itemView.findViewById(R.id.order_id);
         txtOrderPhone = (TextView)itemView.findViewById(R.id.order_phone);
         txtOrderStatus = (TextView)itemView.findViewById(R.id.order_status);
+
+        btnColor = (Button) itemView.findViewById(R.id.btnColor1);
 
         itemView.setOnClickListener(this);
     }

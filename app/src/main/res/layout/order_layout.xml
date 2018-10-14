@@ -9,6 +9,26 @@
     >
 
     <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_weight="4"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <info.hoang8f.widget.FButton
+            android:id="@+id/btnColor1"
+            android:layout_width="0dp"
+            android:layout_height="15dp"
+            android:layout_weight="1"
+            app:buttonColor="@android:color/white"
+            app:cornerRadius="0dp" />
+    </LinearLayout>
+
+    <LinearLayout
         android:layout_marginTop="16dp"
         android:layout_marginBottom="16dp"
         android:orientation="horizontal"
@@ -65,7 +85,8 @@
 
         </LinearLayout>
 
-
+        </LinearLayout>
     </LinearLayout>
+
 
 </android.support.v7.widget.CardView>

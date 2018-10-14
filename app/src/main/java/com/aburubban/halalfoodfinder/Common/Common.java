@@ -24,8 +24,10 @@ public class Common {
 
     public static String convertCodeToStatus(String status) {
         if(status.equals("0"))
-            return "รับออเดอร์";
+            return "รอการอัพเดทสถานะ";
         else if(status.equals("1"))
+            return "รับออเดอร์";
+        else if (status.equals("2"))
             return "อยู่ระหว่างการส่ง";
         else
             return "จ่ายเงินเรียบร้อย";

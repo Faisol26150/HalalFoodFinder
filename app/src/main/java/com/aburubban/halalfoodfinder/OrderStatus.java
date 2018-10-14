@@ -1,10 +1,12 @@
 package com.aburubban.halalfoodfinder;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.widget.Button;
 
 import com.aburubban.halalfoodfinder.Common.Common;
 import com.aburubban.halalfoodfinder.Model.Request;
@@ -51,10 +53,10 @@ public class OrderStatus extends AppCompatActivity {
         layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
 
-        if (getIntent() == null)
+        //if (getIntent() == null)
         loadOrders(Common.currentUser.getPhone());
-        else
-            loadOrders(getIntent().getStringExtra("userPhone"));
+       // else
+            //loadOrders(getIntent().getStringExtra("userPhone"));
     }
 
     private void loadOrders(String phone) {
@@ -71,6 +73,19 @@ public class OrderStatus extends AppCompatActivity {
                 viewHolder.txtOrderStatus.setText(Common.convertCodeToStatus(model.getStatus()));
                 viewHolder.txtOrderAddress.setText(model.getAddress());
                 viewHolder.txtOrderPhone.setText(model.getPhone());
+
+                if (model.getStatus().contentEquals("0")){
+                    viewHolder.btnColor.setBackgroundColor(Color.WHITE);
+                }
+                else if (model.getStatus().contentEquals("1")){
+                    viewHolder.btnColor.setBackgroundColor(Color.RED);
+                }
+                else if (model.getStatus().contentEquals("2")){
+                    viewHolder.btnColor.setBackgroundColor(Color.YELLOW);
+                }
+                else
+                    viewHolder.btnColor.setBackgroundColor(Color.GREEN);
+                
 
             }
         };
