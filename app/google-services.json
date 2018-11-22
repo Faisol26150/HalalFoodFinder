@@ -15,43 +15,11 @@
       },
       "oauth_client": [
         {
-          "client_id": "937053316971-m7ls0c0qfc6bes3bh14j0n43mjthktq1.apps.googleusercontent.com",
+          "client_id": "937053316971-iedt4cfqn8resj8u9ocq7acdi8iqdabj.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "com.aburubban.halalfoodfinder",
-            "certificate_hash": "a18b8ef43e9f8ed34db369a6f0bde3306ecf5021"
-          }
-        },
-        {
-          "client_id": "937053316971-4bqrj5qttkimuior50upog7687fu9nqt.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.aburubban.halalfoodfinder",
-            "certificate_hash": "ebca57ad5da7779735321e27f8ab474fb8473363"
-          }
-        },
-        {
-          "client_id": "937053316971-9ne7vcm4h92sm3a5nekqacue184h0o72.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.aburubban.halalfoodfinder",
-            "certificate_hash": "17d22dd9750fe07162f9c632526685bb31072e4d"
-          }
-        },
-        {
-          "client_id": "937053316971-eehdcnfvslpfke0c8auc9dsmnmqn1j3g.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.aburubban.halalfoodfinder",
-            "certificate_hash": "8c28cc82484ea76a1efa26077794904aef28dda0"
-          }
-        },
-        {
-          "client_id": "937053316971-romo8pk24g7l9nv2omumm31utttdjlfs.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.aburubban.halalfoodfinder",
-            "certificate_hash": "2b0ff3d06eb5d652801be7d9984c395f838171ab"
+            "certificate_hash": "92ae5bcc3906ef6446c93405542b5ebd9d07a138"
           }
         },
         {
@@ -128,6 +96,37 @@
               "client_type": 3
             }
           ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:937053316971:android:726c8531c0f9685f",
+        "android_client_info": {
+          "package_name": "m.aburubban.halalfoodfinder"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "937053316971-kb86fh9ksq2aj5gcadanpkpo86fcdr8j.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBc2zg1omGOKgovJr29ILD6E5dzf3d4N3I"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
         },
         "ads_service": {
           "status": 2
