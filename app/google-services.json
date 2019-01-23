@@ -23,6 +23,14 @@
           }
         },
         {
+          "client_id": "937053316971-964tmh7m46k3dqt4vgc0u8ergo1m8qnq.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.aburubban.halalfoodfinder",
+            "certificate_hash": "d0b54634ddb8b8b32816d45289e24e78f77e4fa2"
+          }
+        },
+        {
           "client_id": "937053316971-kb86fh9ksq2aj5gcadanpkpo86fcdr8j.apps.googleusercontent.com",
           "client_type": 3
         }
@@ -72,6 +80,14 @@
           "android_info": {
             "package_name": "com.faisol.halalfoodpointshopowner",
             "certificate_hash": "2b0ff3d06eb5d652801be7d9984c395f838171ab"
+          }
+        },
+        {
+          "client_id": "937053316971-uol5o0pm4n0dddssks102bqk3e00bd1o.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.faisol.halalfoodpointshopowner",
+            "certificate_hash": "92ae5bcc3906ef6446c93405542b5ebd9d07a138"
           }
         },
         {
