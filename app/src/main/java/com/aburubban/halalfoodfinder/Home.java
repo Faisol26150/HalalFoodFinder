@@ -19,10 +19,12 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.aburubban.halalfoodfinder.Common.Common;
+import com.aburubban.halalfoodfinder.Database.Database;
 import com.aburubban.halalfoodfinder.Interface.ItemClickListener;
 import com.aburubban.halalfoodfinder.Model.Category;
 import com.aburubban.halalfoodfinder.Model.Token;
 import com.aburubban.halalfoodfinder.ViewHolder.MenuViewHolder;
+import com.andremion.counterfab.CounterFab;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
@@ -44,6 +46,8 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
     RecyclerView.LayoutManager layoutManager;
 
     FirebaseRecyclerAdapter<Category,MenuViewHolder> adapter;
+
+    CounterFab fab;
 
 
     @Override
@@ -74,7 +78,7 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
         //Init paper
         Paper.init(this);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        fab = (CounterFab) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -82,6 +86,8 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
                 startActivity(cartIntent);
             }
         });
+
+        fab.setCount(new Database(this).getCountCart());
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -113,6 +119,12 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
         }
 
             updaateToken(FirebaseInstanceId.getInstance().getToken());
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        fab.setCount(new Database(this).getCountCart());
     }
 
     private void updaateToken(String token) {

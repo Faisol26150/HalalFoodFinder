@@ -17,6 +17,7 @@ import com.aburubban.halalfoodfinder.Common.Common;
 import com.aburubban.halalfoodfinder.Database.Database;
 import com.aburubban.halalfoodfinder.Interface.ItemClickListener;
 import com.aburubban.halalfoodfinder.Model.Food;
+import com.aburubban.halalfoodfinder.Model.Order;
 import com.aburubban.halalfoodfinder.ViewHolder.FoodViewHolder;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.google.firebase.database.DataSnapshot;
@@ -142,6 +143,11 @@ public class FoodList extends AppCompatActivity {
 
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+    }
+
     private void startSearch(CharSequence text) {
         searchAdapter = new FirebaseRecyclerAdapter<Food, FoodViewHolder>(
                Food.class,
@@ -199,9 +205,27 @@ public class FoodList extends AppCompatActivity {
                 @Override
                 protected void populateViewHolder(final FoodViewHolder viewHolder, final Food model, final int position) {
                     viewHolder.food_name.setText(model.getName());
+                    viewHolder.food_price.setText(String.format("฿ %s",model.getPrice().toString()));
                              Picasso.with(getBaseContext())
                                      .load(model.getImage())
                                      .into(viewHolder.food_image);
+
+                    //Quick cart
+                    viewHolder.quick_cart.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            new Database(getBaseContext()).addToCart(new Order(
+                                    adapter.getRef(position).getKey(),
+                                    model.getName(),
+                                    "1",
+                                    model.getPrice(),
+                                    model.getDiscont()
+                            ));
+
+                            Toast.makeText(FoodList.this, "ใส่ไปยังรถเข็นแล้ว", Toast.LENGTH_SHORT).show();
+
+                        }
+                    });
 
                     //Add food fovarites
                     if (localDB.isFavorites(adapter.getRef(position).getKey()))

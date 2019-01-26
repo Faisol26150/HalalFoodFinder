@@ -27,7 +27,6 @@ dependencies {
     //paypal
     compile 'com.paypal.sdk:paypal-android-sdk:2.15.3'
 
-
     compile 'com.github.andremion:counterfab:1.0.1'
     compile 'com.stepstone.apprating:app-rating:2.0.0'
     compile 'com.squareup.retrofit2:converter-gson:2.3.0'

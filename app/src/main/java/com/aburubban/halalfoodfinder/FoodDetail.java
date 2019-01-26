@@ -17,6 +17,7 @@ import com.aburubban.halalfoodfinder.Database.Database;
 import com.aburubban.halalfoodfinder.Model.Food;
 import com.aburubban.halalfoodfinder.Model.Order;
 import com.aburubban.halalfoodfinder.Model.Rating;
+import com.andremion.counterfab.CounterFab;
 import com.cepheuen.elegantnumberbutton.view.ElegantNumberButton;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -107,7 +108,7 @@ public class FoodDetail extends AppCompatActivity implements RatingDialogListene
             }
         });
 
-        FloatingActionButton btnCart1 = (FloatingActionButton) findViewById(R.id.btnCart1);
+        CounterFab btnCart1 = (CounterFab) findViewById(R.id.btnCart1);
         btnCart1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -115,6 +116,8 @@ public class FoodDetail extends AppCompatActivity implements RatingDialogListene
                 startActivity(cart1Intent);
             }
         });
+
+        btnCart1.setCount(new Database(this).getCountCart());
 
         food_description = (TextView)findViewById(R.id.food_description);
         food_name = (TextView)findViewById(R.id.food_name);
