@@ -30,7 +30,7 @@ public class Common {
         else if (status.equals("2"))
             return "อยู่ระหว่างการส่ง";
         else
-            return "จ่ายเงินเรียบร้อย";
+            return "จัดส่งเรียบร้อย";
 
     }
 
